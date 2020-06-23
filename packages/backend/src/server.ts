@@ -60,7 +60,7 @@ const resolvers = {
         User: async (obj, args, context): Promise<User | null> => {
             return null
         },
-        Users: async (obj, args, context): Promise<[User | null]> => {
+        Users: async (obj, args, context): Promise<[User] | null> => {
             return null
         },
     },
