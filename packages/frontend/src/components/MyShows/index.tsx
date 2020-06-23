@@ -1,45 +1,29 @@
 import React from "react";
+import { useQuery } from "@apollo/react-hooks";
+import { gql } from "apollo-boost";
 
 import ShowsGrid from "../ShowsGrid";
 import Heading from "../shared/typography/Heading";
 
 import styles from "./styles.module.scss";
-import { User, ShowType } from "showkeeper-backend";
+import { User } from "showkeeper-backend";
 
 /* GQLWS1 Stage 2 */
-// export const USER_SHOWS = gql``;
+export const USER_SHOWS = gql`
+  {
+    User {
+      shows {
+        id
+        title
+        watched
+        type
+      }
+    }
+  }
+`;
 
 const MyShows = () => {
-  const loading = false;
-  const error = false;
-
-  // We want data from the server in this shape
-  const data: { User: User } = {
-    User: {
-      id: "",
-      shows: [
-        {
-          title: "Test show 1",
-          type: "TV" as ShowType,
-          id: "1",
-          watched: false,
-        },
-        {
-          title: "Test show 2",
-          type: "Movie" as ShowType,
-          id: "2",
-          watched: false,
-        },
-        {
-          title: "Test show 3",
-          type: "TV" as ShowType,
-          id: "3",
-          watched: false,
-        },
-      ],
-      name: "",
-    },
-  };
+  const { loading, error, data } = useQuery<{ User: User }>(USER_SHOWS);
 
   return (
     <section className={styles.section}>
