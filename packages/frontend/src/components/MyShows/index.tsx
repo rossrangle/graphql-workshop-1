@@ -7,6 +7,7 @@ import Heading from "../shared/typography/Heading";
 
 import styles from "./styles.module.scss";
 import { User } from "showkeeper-backend";
+import Button from "../shared/form/Button";
 
 /* GQLWS1 Stage 2 */
 export const USER_SHOWS = gql`
@@ -36,7 +37,19 @@ const MyShows = () => {
 
       {/* Success state */}
       {!loading && !error && data && (
-        <ShowsGrid shows={data.User.shows}></ShowsGrid>
+        <>
+          {/* GQLWS1 Stage 5 */}
+          <Button onClick={() => console.log("See all shows")}>
+            Show all shows
+          </Button>
+          <Button onClick={() => console.log("See unwatched shows")}>
+            Show unwatched shows only
+          </Button>
+          <Button onClick={() => console.log("See watched shows")}>
+            Show watched shows only
+          </Button>
+          <ShowsGrid shows={data.User.shows}></ShowsGrid>
+        </>
       )}
     </section>
   );
