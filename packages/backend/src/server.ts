@@ -56,7 +56,7 @@ const resolvers = {
     Query: {
         // obj -> passed from parent
         // args -> passed from query 
-        // context -> passed from apollo
+        // context -> shared across all resolvers for this operation
         User: async (obj, args, context): Promise<User | null> => {
             return null
         },
@@ -66,10 +66,10 @@ const resolvers = {
     },
     Mutation: {
         addMyShow: async (obj, args: Show, context): Promise<Show> => {
-            return await dataStore.addMyShow(DEMO_USER_ID, args)
+            return await context.dataSources.api.addMyShow(DEMO_USER_ID, args)
         },
         deleteMyShow: async (obj, args: Id, context): Promise<Id> => {
-            await dataStore.deleteMyShow(DEMO_USER_ID, args.id)
+            await context.dataSources.api.deleteMyShow(DEMO_USER_ID, args.id)
             return args
         }
     },
@@ -91,7 +91,14 @@ const cors = {
 /****************************
  * GraphQL Server
  ****************************/
-const server = new ApolloServer({ typeDefs, resolvers, cors });
+const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    dataSources: () => ({
+        api: dataStore
+    }),
+    cors
+});
 
 server.listen().then(({ url }) => {
     console.log(`Apollo server at ${url}`)
