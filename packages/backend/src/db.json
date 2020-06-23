@@ -1,0 +1,14 @@
+{
+  "myShows": [
+    {
+      "type": "TV",
+      "title": "Game of Thrones",
+      "watched": false
+    },
+    {
+      "type": "TV",
+      "title": "The Wire",
+      "watched": false
+    }
+  ]
+}

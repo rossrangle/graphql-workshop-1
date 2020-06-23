@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GraphQL Workshop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Roboto&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            text-align: center;
+            background-color: #ff0000;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h1 {
+            font-family: 'Metal Mania', cursive;
+            color: #ffff55;
+            font-size: 6rem;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        h2 {
+            margin: 0;
+        }
+
+        .box {
+            text-align: left;
+            border: solid 2px white;
+            max-width: 30rem;
+            margin: 0.5rem auto;
+            padding: 2rem;
+        }
+
+        li {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <span>GraphQL workshop demo app: </span>
+    <h1>Show Keeper</h1>
+    <div class="box">
+        <p>Show Keeper logs the shows you want to watch.</p>
+    </div>
+    <div class="box">
+        <h2>My Shows</h2>
+        <p>
+            The list of shows you want to watch and have watched.
+        </p>
+        <p>
+            This data comes from a GraphQL query.
+        </p>
+        <ul id="app"></ul>
+    </div>
+    <script src="./utils.js"></script>
+    <script src="./app.js"></script>
+</body>
+
+</html>

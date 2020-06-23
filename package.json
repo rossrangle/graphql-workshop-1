@@ -1,0 +1,16 @@
+{
+  "name": "showkeeper",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "concurrently": "^5.2.0"
+  },
+  "scripts": {
+    "start": "concurrently \"yarn frontend\" \"yarn backend\"",
+    "frontend": "cd packages/frontend && yarn start",
+    "backend": "cd packages/backend && yarn start"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

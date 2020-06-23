@@ -1,0 +1,12 @@
+{
+  "name": "showkeeper-frontend",
+  "version": "1.0.0",
+  "description": "Front end for the Showkeeper demo application ",
+  "scripts": {
+    "start": "http-server ./src"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}
