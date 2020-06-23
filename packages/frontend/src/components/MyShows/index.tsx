@@ -23,6 +23,7 @@ export const USER_SHOWS = gql`
 `;
 
 const MyShows = () => {
+  /* GQLWS1 Stage 5 */
   const { loading, error, data } = useQuery<{ User: User }>(USER_SHOWS);
 
   return (

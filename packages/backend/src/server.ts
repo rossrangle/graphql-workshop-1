@@ -44,7 +44,7 @@ type Query {
 
 type Mutation {
     addMyShow(title: String!, watched: Boolean, type: String!): Show
-    # updateMyShow(id: String!, title: String!, watched: Boolean, type: String!): Show
+    updateMyShow(id: String!, title: String!, watched: Boolean, type: String!): Show
     deleteMyShow(id: String!): Id
 }
 `
@@ -70,7 +70,9 @@ const resolvers = {
             return await dataStore.addMyShow(DEMO_USER_ID, args)
         },
         /* GQLWS1 Stage 4 */
-        // updateMyShow: async (...
+        updateMyShow: async (obj, args: Show, context): Promise<Show> => {
+            return await dataStore.updateMyShow(DEMO_USER_ID, args)
+        },
         deleteMyShow: async (obj, args: Id, context): Promise<Id> => {
             await dataStore.deleteMyShow(DEMO_USER_ID, args.id)
             return args
