@@ -1,0 +1,9 @@
+@import "../../vars.scss";
+
+.section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+  gap: $spacing10;
+  margin: $spacing10 0;
+}

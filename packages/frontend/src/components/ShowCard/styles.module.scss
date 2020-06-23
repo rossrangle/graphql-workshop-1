@@ -1,0 +1,32 @@
+@import "../../vars.scss";
+
+.showCard {
+  border: solid 2px $primary;
+  border-radius: 5px;
+  min-height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.watched {
+  opacity: 0.5;
+}
+
+.showTitle {
+  display: flex;
+}
+
+.showTitleInitial {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  margin-right: $spacing10;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary;
+  color: $pageColor;
+  font-size: 3.5rem;
+  font-family: $brandFont;
+}

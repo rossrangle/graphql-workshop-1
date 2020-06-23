@@ -1,0 +1,22 @@
+@import "../../../../vars.scss";
+
+h1,
+h2,
+h3 {
+  color: $primary;
+  margin: 0;
+}
+
+h1 {
+  padding: $spacing30 0;
+  font-size: $h1Size;
+  font-family: $brandFont;
+}
+
+h2 {
+  padding: $spacing20 0;
+}
+
+h3 {
+  padding: $spacing10 0;
+}

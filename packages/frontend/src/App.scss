@@ -1,0 +1,12 @@
+@import "./vars.scss";
+
+body {
+  background-color: $pageColor;
+}
+.App {
+  max-width: 60rem;
+  margin: 0 auto;
+  font-size: $baseFontSize;
+  color: $text;
+  padding: $spacing30;
+}

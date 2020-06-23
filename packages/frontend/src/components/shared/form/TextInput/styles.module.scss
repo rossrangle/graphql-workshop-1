@@ -1,0 +1,10 @@
+@import "../../../../vars.scss";
+
+.textinput {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    font-size: $baseFontSize * 1.5;
+  }
+}

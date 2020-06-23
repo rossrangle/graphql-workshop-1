@@ -1,0 +1,15 @@
+.chooseShowTypeBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  label {
+    cursor: pointer;
+  }
+
+  input {
+    transform: scale(2);
+    margin: 0 1rem;
+  }
+}
