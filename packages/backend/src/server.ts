@@ -57,11 +57,11 @@ const resolvers = {
         // obj -> passed from parent
         // args -> passed from query 
         // context -> passed from apollo
-        User: async (obj, args, context): Promise<User | null> => {
-            return null
+        User: async (obj, args, context): Promise<User> => {
+            return await dataStore.getUser(DEMO_USER_ID)
         },
-        Users: async (obj, args, context): Promise<[User | null]> => {
-            return null
+        Users: async (obj, args, context): Promise<[User]> => {
+            return await dataStore.getUsers()
         },
     },
     Mutation: {

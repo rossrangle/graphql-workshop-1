@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { ApolloProvider } from "@apollo/react-hooks";
+import ApolloClient from "apollo-boost";
 
 import "./index.css";
 import App from "./App";
@@ -9,12 +11,17 @@ import "./fonts/MetalMania-Regular.ttf";
 import "./fonts/Roboto-Regular.ttf";
 
 /* GQLWS1 Stage 1 */
-// const graphQLEndpoint = "http://localhost:4000";
+const graphQLEndpoint = "http://localhost:4000";
+const client = new ApolloClient({
+  uri: graphQLEndpoint,
+});
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ApolloProvider client={client}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </ApolloProvider>,
   document.getElementById("root")
 );
 
