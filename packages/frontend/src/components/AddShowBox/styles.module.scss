@@ -1,0 +1,7 @@
+.addShowBox {
+  display: grid;
+  grid-template-columns: minmax(20rem, 1fr) minmax(5rem, 10rem) minmax(
+      5rem,
+      10rem
+    );
+}

@@ -3,6 +3,7 @@ import React from "react";
 import styles from "./styles.module.scss";
 import ShowType from "../shared/typography/ShowType";
 import { Show } from "showkeeper-backend/src/types/graphql";
+import DeleteMyShow from "../DeleteMyShow";
 import ShowTitle from "./showTitle";
 
 /*
@@ -10,10 +11,14 @@ import ShowTitle from "./showTitle";
 */
 const ShowCard = ({ show }: { show: Show }) => {
   return (
-    <div className={styles.showCard}>
+    <div
+      className={`${styles.showCard} ${
+        show.watched ? styles.watched : styles.towatch
+      }`}
+    >
       <ShowTitle title={show.title}></ShowTitle>
       <ShowType>{show.type}</ShowType>
-      <span></span>
+      <DeleteMyShow id={show.id}></DeleteMyShow>
     </div>
   );
 };
