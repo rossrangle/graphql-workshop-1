@@ -28,9 +28,11 @@ function updateLocalCacheAddShow(
 ) {
   const { User } = cache.readQuery({
     query: USER_SHOWS,
+    variables: { watched: null },
   }) as any;
   cache.writeQuery({
     query: USER_SHOWS,
+    variables: { watched: null },
     data: {
       User: {
         ...User,

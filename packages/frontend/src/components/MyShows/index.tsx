@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 
@@ -11,9 +11,9 @@ import Button from "../shared/form/Button";
 
 /* GQLWS1 Stage 2 */
 export const USER_SHOWS = gql`
-  {
+  query GetUserShows($watched: Boolean) {
     User {
-      shows {
+      shows(watched: $watched) {
         id
         title
         watched
@@ -24,8 +24,15 @@ export const USER_SHOWS = gql`
 `;
 
 const MyShows = () => {
+  const [
+    displayShowWatchedType,
+    setDisplayShowWatchedType,
+  ] = useState<Boolean | null>(null);
+
   /* GQLWS1 Stage 5 */
-  const { loading, error, data } = useQuery<{ User: User }>(USER_SHOWS);
+  const { loading, error, data } = useQuery<{ User: User }>(USER_SHOWS, {
+    variables: { watched: displayShowWatchedType },
+  });
 
   return (
     <section className={styles.section}>
@@ -38,14 +45,13 @@ const MyShows = () => {
       {/* Success state */}
       {!loading && !error && data && (
         <>
-          {/* GQLWS1 Stage 5 */}
-          <Button onClick={() => console.log("See all shows")}>
+          <Button onClick={() => setDisplayShowWatchedType(null)}>
             Show all shows
           </Button>
-          <Button onClick={() => console.log("See unwatched shows")}>
+          <Button onClick={() => setDisplayShowWatchedType(false)}>
             Show unwatched shows only
           </Button>
-          <Button onClick={() => console.log("See watched shows")}>
+          <Button onClick={() => setDisplayShowWatchedType(true)}>
             Show watched shows only
           </Button>
           <ShowsGrid shows={data.User.shows}></ShowsGrid>

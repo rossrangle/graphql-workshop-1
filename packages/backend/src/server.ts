@@ -79,6 +79,15 @@ const resolvers = {
         }
     },
 
+    User: {
+        shows: async (obj: User, args: { watched: Boolean }, context): Promise<Show[]> => {
+            if (typeof args.watched === "boolean") {
+                return obj.shows.filter(show => show.watched === args.watched)
+            }
+            return obj.shows
+        },
+    },
+
     // Custom GraphQL resolvers
     Show: {
         rating: (obj: Show, args, context) => {
