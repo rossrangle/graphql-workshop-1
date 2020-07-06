@@ -41,6 +41,7 @@ module.exports = {
     getUser: async (userId: String): Promise<User> => await getUserById(userId),
     addMyShow: async (userId: String, newShow: Show): Promise<Show> => {
         newShow.id = uuidv4();
+        if (!newShow.watched) newShow.watched = false
         findUserShows(userId).push(newShow)
         await saveData(showkeeperdata)
         return newShow;
